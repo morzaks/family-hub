@@ -4,9 +4,9 @@ import { Drawer } from 'vaul';
 import { useState, useContext } from 'react'; // <-- Tambahkan useContext
 import { AuthContext } from './context/AuthContext'; // <-- Import ini
 import Auth from './pages/Auth'; // <-- Import ini
+import Dashboard from './pages/Dashboard';
 
 // Placeholder untuk halaman-halaman utama
-const Dashboard = () => <div className="p-6 pt-12 animate-in fade-in"><h1 className="text-2xl font-bold text-slate-800">Beranda</h1><p className="text-slate-500 mt-2">Selamat datang di Family Hub.</p></div>;
 const Keuangan = () => <div className="p-6 pt-12 animate-in fade-in"><h1 className="text-2xl font-bold text-slate-800">Keuangan</h1></div>;
 const Kalender = () => <div className="p-6 pt-12 animate-in fade-in"><h1 className="text-2xl font-bold text-slate-800">Kalender</h1></div>;
 const Berdua = () => <div className="p-6 pt-12 animate-in fade-in"><h1 className="text-2xl font-bold text-slate-800">Berdua</h1></div>;

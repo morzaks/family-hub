@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect } from 'react';
+/* eslint-disable */
+import React, { createContext, useState, useEffect } from 'react';
 import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';

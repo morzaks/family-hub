@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Home, WalletCards, CalendarDays, Heart, Plus, X, ArrowDownToLine, ArrowUpToLine } from 'lucide-react';
 import { Drawer } from 'vaul';
-import { useState } from 'react';
+import { useState, useContext } from 'react'; // <-- Tambahkan useContext
+import { AuthContext } from './context/AuthContext'; // <-- Import ini
+import Auth from './pages/Auth'; // <-- Import ini
 
 // Placeholder untuk halaman-halaman utama
 const Dashboard = () => <div className="p-6 pt-12 animate-in fade-in"><h1 className="text-2xl font-bold text-slate-800">Beranda</h1><p className="text-slate-500 mt-2">Selamat datang di Family Hub.</p></div>;
@@ -86,6 +88,14 @@ function BottomNavigation() {
 }
 
 export default function App() {
+  const { currentUser, loading } = useContext(AuthContext);
+
+  // Tampilkan layar putih kosong selama Firebase mengecek status login
+  if (loading) return <div className="min-h-screen bg-slate-50 flex items-center justify-center">Memuat...</div>;
+
+  // Jika belum login, paksa ke halaman Auth
+  if (!currentUser) return <Auth />;
+
   return (
     <Router>
       {/* vaul-drawer-wrapper diperlukan agar saat sheet naik, layar belakang memberikan efek scale-down khas iOS */}
